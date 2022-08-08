@@ -3,7 +3,7 @@
 
 ## Holiday Challenge Solution C#
 
-Challenge proposal: Create a C# application that, given a date, the application informs whether it is a holiday or not, considering fixed and mobile holidays.
+Challenge proposal: Create a C# application that, given a date, the application informs it is a holiday or not, considering fixed and mobile holidays.
 
 Solution: Created a class that returns a list of holidays that has the year as a parameter.
 
