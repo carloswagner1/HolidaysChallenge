@@ -30,18 +30,20 @@ namespace HolidaysChallenge
 
             //Holiday List Solution
             var holidaysList = NationalHolidays.GetNationalHolidayByYear(dateInput.Year);
+           
             Console.WriteLine();
 
             Console.WriteLine("Lista de feriados: ");
-            foreach (var holiday in holidaysList)
+            holidaysList.ForEach(holiday =>
             {
                 Console.WriteLine($"{formatDate(holiday.date)} - {holiday.holidayName}");
-            }
+            });
+            
 
             Console.WriteLine();
 
-            var isHoliday = holidaysList.SingleOrDefault(holiday => holiday.date.Equals(dateInput));
-
+            var isHoliday = holidaysList.Find(holiday => holiday.date.Equals(dateInput));
+            Console.WriteLine(isHoliday);
             if (isHoliday == null)
             {
                 Console.WriteLine($"A data informada ({formatDate(dateInput)}) não é feriado. :(");
