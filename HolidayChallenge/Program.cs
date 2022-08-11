@@ -10,12 +10,15 @@ namespace HolidaysChallenge
     {
         static void Main(string[] args)
         {
+            // Função para formatar a data
             Func<DateTime, string> formatDate = (date) =>
                 String.Format("{0:D2}/{1:D2}/{2:D4}", date.Day, date.Month, date.Year);
 
             Console.WriteLine("Informe a data a ser pesquisada: ");
-
             var dateInput = Convert.ToDateTime(Console.ReadLine());
+
+            Console.WriteLine(dateInput.DayOfWeek);
+
             //DateTime List Solution
             var holidays = NationalHolidays.GetNationalHolidayList(dateInput.Year);
 
@@ -34,15 +37,15 @@ namespace HolidaysChallenge
             Console.WriteLine();
 
             Console.WriteLine("Lista de feriados: ");
-            holidaysList.ForEach(holiday =>
+            holidaysList.ForEach(x =>
             {
-                Console.WriteLine($"{formatDate(holiday.date)} - {holiday.holidayName}");
+                Console.WriteLine($"{formatDate(x.date)} - {x.holidayName}");
             });
             
 
             Console.WriteLine();
 
-            var isHoliday = holidaysList.Find(holiday => holiday.date.Equals(dateInput));
+            var isHoliday = holidaysList.Find(x => x.date.Equals(dateInput));
             Console.WriteLine(isHoliday);
             if (isHoliday == null)
             {
