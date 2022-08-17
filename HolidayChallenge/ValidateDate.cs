@@ -8,11 +8,12 @@ namespace HolidaysChallenge
 {
     public class Holiday
     {
-        public DateTime date { get; set; }
-        public string? holidayName { get; set; }
+        public DateTime Date { get; set; }
+        public string? HolidayName { get; set; }
     }
     public class ValidateDate
     {
+
         //Set DueDate in a BussinessDay
         public static DateTime BusinessDayValidation(DateTime date)
         {
@@ -25,7 +26,7 @@ namespace HolidaysChallenge
             //if (isNotHoliday && isNotBusinessDay)
             //    return date;
             var holidaysList = GetNationalHolidayByYear(date.Year);
-            var isHoliday = holidaysList.Find(x => x.date.Equals(date));
+            var isHoliday = holidaysList.Find(x => x.Date.Equals(date));
             if (isHoliday == null && isNotBusinessDay)
                 return date;
 
@@ -70,33 +71,71 @@ namespace HolidaysChallenge
         //List Holiday Solution
         public static List<Holiday> GetNationalHolidayByYear(int year)
         {
+
+
             //fixed holidays
-            var newYearDay = new Holiday { date = new DateTime(year, 1, 1), 
-                holidayName = "Confraternização Universal" };
-            var tiradentesDay = new Holiday { date = new DateTime(year, 4, 21), 
-                holidayName = "Tiradentes" };
-            var laborDay = new Holiday { date = new DateTime(year, 5, 1), 
-                holidayName = "Dia do Trabalho" };
-            var independenceDay = new Holiday { date = new DateTime(year, 9, 7), 
-                holidayName = "Dia da Indenpendência do Brasil" };
-            var nossaSenhoraDay = new Holiday { date = new DateTime(year, 10, 12), 
-                holidayName = "Dia de Nossa Senhora Aparecida" };
-            var allSoulsDay = new Holiday { date = new DateTime(year, 11, 2), 
-                holidayName = "Dia de Finados" };
-            var proclamationRepublicDay = new Holiday { date = new DateTime(year, 11, 15), 
-                holidayName = "Dia da Proclamação da República" };
-            var christmasDay = new Holiday { date = new DateTime(year, 12, 25), 
-                holidayName = "Natal" };
-            
+            var newYearDay = new Holiday
+            {
+                Date = new DateTime(year, 1, 1),
+                HolidayName = "Confraternização Universal"
+            };
+            var tiradentesDay = new Holiday
+            {
+                Date = new DateTime(year, 4, 21),
+                HolidayName = "Tiradentes"
+            };
+            var laborDay = new Holiday
+            {
+                Date = new DateTime(year, 5, 1),
+                HolidayName = "Dia do Trabalho"
+            };
+            var independenceDay = new Holiday
+            {
+                Date = new DateTime(year, 9, 7),
+                HolidayName = "Dia da Indenpendência do Brasil"
+            };
+            var nossaSenhoraDay = new Holiday
+            {
+                Date = new DateTime(year, 10, 12),
+                HolidayName = "Dia de Nossa Senhora Aparecida"
+            };
+            var allSoulsDay = new Holiday
+            {
+                Date = new DateTime(year, 11, 2),
+                HolidayName = "Dia de Finados"
+            };
+            var proclamationRepublicDay = new Holiday
+            {
+                Date = new DateTime(year, 11, 15),
+                HolidayName = "Dia da Proclamação da República"
+            };
+            var christmasDay = new Holiday
+            {
+                Date = new DateTime(year, 12, 25),
+                HolidayName = "Natal"
+            };
+
             //mobile holidays
-            var easterDay = new Holiday { date = CalculateEasterDay(year), 
-                holidayName = "Dia de Páscoa" };
-            var carnivalDay = new Holiday { date = easterDay.date.AddDays(-47), 
-                holidayName = "Carnaval" };
-            var corpusChristiDay = new Holiday { date = easterDay.date.AddDays(60), 
-                holidayName = "Corpus Christi" };
-            var godsFridayDay = new Holiday { date = easterDay.date.AddDays(-2), 
-                holidayName = "friday-Feira Santa" };
+            var easterDay = new Holiday
+            {
+                Date = CalculateEasterDay(year),
+                HolidayName = "Dia de Páscoa"
+            };
+            var carnivalDay = new Holiday
+            {
+                Date = easterDay.Date.AddDays(-47),
+                HolidayName = "Carnaval"
+            };
+            var corpusChristiDay = new Holiday
+            {
+                Date = easterDay.Date.AddDays(60),
+                HolidayName = "Corpus Christi"
+            };
+            var godsFridayDay = new Holiday
+            {
+                Date = easterDay.Date.AddDays(-2),
+                HolidayName = "friday-Feira Santa"
+            };
 
             var holidaysList = new List<Holiday>();
 
@@ -112,6 +151,7 @@ namespace HolidaysChallenge
             holidaysList.Add(allSoulsDay);
             holidaysList.Add(proclamationRepublicDay);
             holidaysList.Add(christmasDay);
+
 
             return holidaysList;
         }
@@ -156,6 +196,6 @@ namespace HolidaysChallenge
                     return easterDate;
                 }
             }
-        }       
+        }
     }    
 }

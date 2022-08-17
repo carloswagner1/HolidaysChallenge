@@ -23,17 +23,18 @@ namespace HolidaysChallenge
                 Console.WriteLine("Data Inválida.");
                 return;
             }
-            Console.WriteLine();
-            Console.WriteLine("Informa a quantidade de parcelas: ");
+            
+            Console.WriteLine("\nInforma a quantidade de parcelas: ");
             int numberOfInstallment;
             if (!int.TryParse(Console.ReadLine(), out numberOfInstallment))
             {
                 Console.WriteLine("Número de Parcelas Inválido.");
                 return;
             }
-            Console.WriteLine();
-            //fazer a lógica do main, chamando o método Valida Data
+            
+            //fazer a lógica do main, validando as datas das parcelas
             List<DateTime> DueDateList = new List<DateTime>();
+            
             int x = 1;
             while (x < numberOfInstallment){
                 dateInput = dateInput.AddMonths(1);
@@ -41,7 +42,7 @@ namespace HolidaysChallenge
                 DueDateList.Add(dueDate);                
                 x++;
             }
-            Console.WriteLine("Datas de vencimento");
+            Console.WriteLine("\nDatas de vencimento");
             foreach (var dueDate in DueDateList)
             {
                 Console.WriteLine(formatDate(dueDate));
