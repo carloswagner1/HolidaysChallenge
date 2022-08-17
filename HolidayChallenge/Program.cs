@@ -47,7 +47,6 @@ namespace HolidaysChallenge
             {
                 Console.WriteLine(formatDate(dueDate));
             }
-
             
 
             ////DateTime List Solution
