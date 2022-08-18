@@ -35,7 +35,7 @@ namespace HolidaysChallenge
             //fazer a lógica do main, validando as datas das parcelas
             List<DateTime> DueDateList = new List<DateTime>();
             
-            int x = 1;
+            int x = 0;
             while (x < numberOfInstallment){
                 dateInput = dateInput.AddMonths(1);
                 var dueDate = ValidateDate.BusinessDayValidation(dateInput);
