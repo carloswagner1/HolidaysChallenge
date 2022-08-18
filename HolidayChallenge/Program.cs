@@ -1,6 +1,8 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,6 +12,7 @@ namespace HolidaysChallenge
     {
         static void Main(string[] args)
         {
+            
             // Função para formatar a data
             Func<DateTime, string> formatDate = (date) =>
                 String.Format("{0:D2}/{1:D2}/{2:D4}", date.Day, date.Month, date.Year);
@@ -47,10 +50,9 @@ namespace HolidaysChallenge
             {
                 Console.WriteLine(formatDate(dueDate));
             }
-            
 
             ////DateTime List Solution
-            //var holidays = NationalHolidays.GetNationalHolidayList(dateInput.Year);
+            //var holidays = Holiday.GetNationalHolidayList(dateInput.Year);
 
             //if (holidays.Contains(dateInput))
             //{
@@ -62,20 +64,18 @@ namespace HolidaysChallenge
             //}
 
             ////Holiday List Solution
-            //var holidaysList = NationalHolidays.GetNationalHolidayByYear(dateInput.Year);
-           
+            //var holidaysList = Holiday.GetNationalHolidayByYear(dateInput.Year);
+
             //Console.WriteLine();
 
             //Console.WriteLine("Lista de feriados: ");
-            //holidaysList.ForEach(x =>
-            //{
-            //    Console.WriteLine($"{formatDate(x.date)} - {x.holidayName}");
-            //});
-            
+            //holidaysList.ForEach(x => Console.WriteLine($"{formatDate(x.Date)} - {x.HolidayName}"));
+
+
 
             //Console.WriteLine();
 
-            //var isHoliday = holidaysList.Find(x => x.date.Equals(dateInput));
+            //var isHoliday = holidaysList.Find(x => x.Date.Equals(dateInput));
             //Console.WriteLine(isHoliday);
             //if (isHoliday == null)
             //{
@@ -84,8 +84,8 @@ namespace HolidaysChallenge
             //else
             //{
             //    Console.WriteLine($"A data informada informada " +
-            //        $"({formatDate(isHoliday.date)}) é feriado!!! :) - " +
-            //        $"{isHoliday.holidayName}");
+            //        $"({formatDate(isHoliday.Date)}) é feriado!!! :) - " +
+            //        $"{isHoliday.HolidayName}");
             //}
         }
     }

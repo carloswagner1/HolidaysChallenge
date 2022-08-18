@@ -3,6 +3,7 @@
     public class Holiday
     {
         public DateTime Date { get; set; }
+        public int HolidayValue { get; set; }
         public string? HolidayName { get; set; }
 
         //List Holiday Solution
