@@ -25,24 +25,25 @@ namespace HolidaysChallenge
             }
             return businessDateList;
         }
-
         public static DateTime BusinessDayValidation(DateTime date, List<Holiday> holidayByPeriodList)
         {
-            int monday = 1;
-            int friday = 5;
-           
-            bool isNotBusinessDay = ((int)date.DayOfWeek >= monday
-                && (int)date.DayOfWeek <= friday);
+            while (!IsBusinessDay(date, holidayByPeriodList))
+                date = date.AddDays(1);                        
+            return date;
+        }
+
+        public static Boolean IsBusinessDay(DateTime date, List<Holiday> holidayByPeriodList)
+        {           
+            bool isBusinessDay = (int)date.DayOfWeek >= (int)DayOfWeek.Monday
+                && (int)date.DayOfWeek <= (int)DayOfWeek.Friday;
             //bool isNotHoliday = !holidays.Contains(date);
             //if (isNotHoliday && isNotBusinessDay)
             //    return date;
             //var holidaysList = Holiday.GetNationalHolidayByYear(date.Year);
             var isHoliday = holidayByPeriodList.Find(x => x.Date.Equals(date));
-            if (isHoliday == null && isNotBusinessDay)
-                return date;
-
-            var newDate = date.AddDays(1);
-            return BusinessDayValidation(newDate, holidayByPeriodList);
+            if (isHoliday == null && isBusinessDay)
+                return true;
+            return false;
         } 
     }    
 }
